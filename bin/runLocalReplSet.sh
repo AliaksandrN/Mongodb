@@ -1,7 +1,6 @@
 #!/bin/bash
 
 declare -a rs=()
-b=3.00
 
 if [ -f results.txt ]; then
   rm results.txt
@@ -57,3 +56,8 @@ done
 echo ${rs[@]} >> results.txt
 
 killall -9 mongod
+
+./runMongoStandalone.sh
+./runLocalStandalone.sh
+./buildResult.sh
+google-chrome results.html
