@@ -1,16 +1,10 @@
 #!/bin/bash
 
-# $1 - port
-# $2 - replSet arg is <setname>[/<optionalseedhostlist>]
-# $3 - dbPath directory for datafiles - defaults to /data/db
+rm -rf /tmp/data-*
 
+mkdir -p /tmp/data-{1,2,3}
 
-if [[ "$#" -ne 3 ]]; then
+mongod --port 27001 --replSet replSet --logpath /tmp/data-1/1.log --dbpath /tmp/data-1 --bind_ip 127.0.0.1, --oplogSize 128 --wiredTigerJournalCompressor zlib --wiredTigerCollectionBlockCompressor zlib &
+mongod --port 27002 --replSet replSet --logpath /tmp/data-2/2.log --dbpath /tmp/data-2 --bind_ip 127.0.0.1, --oplogSize 128 --wiredTigerJournalCompressor zlib --wiredTigerCollectionBlockCompressor zlib &
+mongod --port 27003 --replSet replSet --logpath /tmp/data-3/3.log --dbpath /tmp/data-3 --bind_ip 127.0.0.1, --oplogSize 128 --wiredTigerJournalCompressor zlib --wiredTigerCollectionBlockCompressor zlib &
 
-  mongod --port $1 --replSet $2 --dbpath $3 --bind_ip localhost --oplogSize 128 \
-	--wiredTigerJournalCompressor zlib \
-	--wiredTigerCollectionBlockCompressor zlib
-
-else
-  echo "Required 3 arguments"
-fi
