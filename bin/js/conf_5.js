@@ -1,5 +1,5 @@
 rsconf4 = {
-  _id: "replicaSet",
+  _id: "replSet",
   members: [
     { _id: 0, host: ip1 },
     { _id: 1, host: ip2 },
