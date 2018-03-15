@@ -1,8 +1,9 @@
-# app-cli-AliaksandrN
+# Technologie NoSQL
+**Aliaksandr Novik**
 
-[Death in the United States 2015](https://www.kaggle.com/cdc/mortality/data).
-This dataset is a collection of data about deceased people in the US in 2015.
+[Crimes in Los Angeles](https://www.kaggle.com/cityofLA/crime-in-los-angeles/data).
+This dataset reflects incidents of crime in the City of Los Angeles dating back to 2010. This data is transcribed from original crime reports that are typed on paper and therefore there may be some inaccuracies within the data. Some location fields with missing data are noted as (0°, 0°). Address fields are only provided to the nearest hundred block in order to maintain privacy.
 
-Step 1. 
-In foleder bin run next command:
+To launch this code run next command in bin folder:
 ./runMongod
+
