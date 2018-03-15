@@ -11,3 +11,5 @@ To launch this code run next command in bin folder:
 Next run:
 
 ./runLocalReplSet.sh
+
+The results will be written in results.html file.
