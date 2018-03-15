@@ -1,7 +1,11 @@
 #!/bin/bash
 
 declare -a rs=()
+b=3.00
 
+if [ -f results.txt ]; then
+  rm results.txt
+fi
 
 mongo --quiet --host="localhost:27001" test ./js/localIps.js ./js/conf_1.js
 echo "Default settings:"
@@ -10,7 +14,7 @@ for i in $(seq 1 5)
 		rs[$i]="$( TIMEFORMAT='%R';time ( gunzip -c $(pwd)/datasets/Crime_Data_2010_2017.csv.tar.gz | mongoimport --quiet --host replSet/localhost:27001,localhost:27002,localhost:27003 --drop -d test -c crimes ) 2>&1 1>/dev/null )"
     	echo "#$i: ${rs[$i]}"
 done
-
+echo ${rs[@]} >> results.txt
 
 mongo --quiet --host="localhost:27001" test ./js/localIps.js ./js/conf_2.js
 echo "Settings: w:1 and j:false"
@@ -20,6 +24,7 @@ for i in $(seq 1 5)
                 rs[$i]="$( TIMEFORMAT='%R';time ( gunzip -c $(pwd)/datasets/Crime_Data_2010_2017.csv.tar.gz | mongoimport --quiet --host replSet/localhost:27001,localhost:27002,localhost:27003 --drop -d test -c crimes ) 2>&1 1>/dev/null )"
         echo "#$i: ${rs[$i]}"
 done
+echo ${rs[@]} >> results.txt
 
 
 mongo --quiet --host="localhost:27001" test ./js/localIps.js ./js/conf_3.js
@@ -29,6 +34,7 @@ for i in $(seq 1 5)
                 rs[$i]="$( TIMEFORMAT='%R';time ( gunzip -c $(pwd)/datasets/Crime_Data_2010_2017.csv.tar.gz | mongoimport --quiet --host replSet/localhost:27001,localhost:27002,localhost:27003 --drop -d test -c crimes ) 2>&1 1>/dev/null )"
         echo "#$i: ${rs[$i]}"
 done
+echo ${rs[@]} >> results.txt
 
 
 mongo --quiet --host="localhost:27001" test ./js/localIps.js ./js/conf_4.js
@@ -38,6 +44,7 @@ for i in $(seq 1 5)
                 rs[$i]="$( TIMEFORMAT='%R';time ( gunzip -c $(pwd)/datasets/Crime_Data_2010_2017.csv.tar.gz | mongoimport --quiet --host replSet/localhost:27001,localhost:27002,localhost:27003 --drop -d test -c crimes ) 2>&1 1>/dev/null )"
         echo "#$i: ${rs[$i]}"
 done
+echo ${rs[@]} >> results.txt
 
 
 mongo --quiet --host="localhost:27001" test ./js/localIps.js ./js/conf_5.js
@@ -47,4 +54,6 @@ for i in $(seq 1 5)
                 rs[$i]="$( TIMEFORMAT='%R';time ( gunzip -c $(pwd)/datasets/Crime_Data_2010_2017.csv.tar.gz | mongoimport --quiet --host replSet/localhost:27001,localhost:27002,localhost:27003 --drop -d test -c crimes ) 2>&1 1>/dev/null )"
         echo "#$i: ${rs[$i]}"
 done
+echo ${rs[@]} >> results.txt
 
+killall -9 mongod
