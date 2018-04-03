@@ -99,6 +99,7 @@ Czas działania replica set i standalone z wywowaniem funkcji sleep w pętle, w 
 |                   |    3.512   |   0.004     |   0.004   |
 
 Tablica 3
+śrenia czasu dla danych z tablicy 1 i tablicy 2
 
 | Replica set       | Avg Real Time (Table1/Table2)  | Avg System Time (Table1/Table2) | Avg User Time (Table1/Table2) |
 | ------------------| -------------------------------|---------------------------------|-------------------------------|
