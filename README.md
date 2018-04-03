@@ -98,5 +98,9 @@ Czas działania replica set i standalone z wywowaniem funkcji sleep w pętle, w 
 |                   |    3.515   |   0.020     |   0.004   |
 |                   |    3.512   |   0.004     |   0.004   |
 
+Tablica 3
+|                   |             Average time             | 
+| Replica set       | Real Time  | System Time | User Time |
+| ------------------| -----------|-------------|-----------|
 
 
