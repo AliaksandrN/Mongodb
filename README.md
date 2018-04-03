@@ -13,3 +13,8 @@ Next run:
 ./runLocalReplSet.sh
 
 The results will be written in results.html file.
+
+| Standalone    | User Time  | System Time | Real Time |
+| ------------- | -----------|-------------|-----------|
+| Content Cell  | Content Cel|
+| Content Cell  | Content Cel|
