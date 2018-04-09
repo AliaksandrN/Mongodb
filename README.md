@@ -6,7 +6,7 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
 
 To launch this code run next command in bin folder:
 
-./runMongod
+./runMongod.sh
 
 Next run:
 
