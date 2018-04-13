@@ -14,17 +14,6 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
 
 
 
-Tablica 3
-śrenia czasu dla danych z tablicy 1 i tablicy 2
-
-| Replica set/Settings       |Avg Real crimes.csv| Avg Real mazowieckie.json| Avg User Time crimes.csv| Avg User time mazowieckie.json| Avg User Time (Table1/Table2) |
-| ---------------------------| -------------------------------|---------------------------------|-------------------------------|
-| Default settings           | 2.722/0,720|             |          0.002/0.005            |         0.011/0.012           |
-| w:1 and j:false            | 0.009/0.018|             |          0.002/0.002            |         0.006/0.016           |
-| w:1 and j:true             | 0.009/0.011|            |          0.004/0.005            |         0.080/0.010           |
-| w:2 and j:false            | 0.013/0.011|             |          0.004/0.002            |         0.009/0.010           |
-| w:2 and j:true             | 0.005/0.011|             |          0.117/0.005            |         0.014/0.009           |
-| Standalone mode            | 3.478/3.513|             |          0.013/0.007            |         0.015/0.007           |
 
 
 <table border=1>
