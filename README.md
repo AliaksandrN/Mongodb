@@ -110,12 +110,6 @@ Tablica 3
 | w:2 and j:true    |        0.005/0.011             |          0.117/0.005            |         0.014/0.009           |
 | Standalone mode   |        3.478/3.513             |          0.013/0.007            |         0.015/0.007           |
 
-<!DOCTYPE html>
-<html>
-<head>
-
-</head>
-<body>
 
 <table border=1>
   <tr>
@@ -364,7 +358,6 @@ Tablica 3
   
 </table>
  
-</body>
-</html>
+
 
 
