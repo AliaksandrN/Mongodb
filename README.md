@@ -223,15 +223,14 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>75.872</td>
     <td>3.424</td>
   </tr>
-    </tr>
-    <tr>
+  
+  <tr>
     <td>163.742</td>
     <td>103.104</td>
     <td>8.320</td>
     <td>111.059</td>
     <td>75.228</td>
     <td>3.368</td>
-
   </tr>
 
   <tr>
@@ -261,7 +260,7 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>3.812</td>
   </tr>
   
-    <tr>
+  <tr>
     <td rowspan="5">Standalone mode</td>
     <td>63.163</td>
     <td>107.612</td>
@@ -270,8 +269,8 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>75.060</td>
     <td>3.500</td>
   </tr>
-    </tr>
-    <tr>
+
+  <tr>
     <td>63.211</td>
     <td>107.572</td>
     <td>10.748</td>
@@ -306,6 +305,9 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>74.764</td>
     <td>3.624</td>
   </tr>
+  
+  
+</table>
   
   
 </table>
