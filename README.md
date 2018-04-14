@@ -35,30 +35,30 @@ Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
   </tr>
   <tr>
     <td>Default</td>
-    <td>159,4432</td>
-    <td>103,2424</td>
-    <td>8,6016</td>
-    <td>109,6122</td>
-    <td>75,5248</td>
-    <td>3,5408</td>
+    <td>2m39.4432s/159,4432s</td>
+    <td>1m43.2424s/103,2424s</td>
+    <td>0m8.6016s/8,6016s</td>
+    <td>1m49.6122s/109,6122s</td>
+    <td>1m15.5248s/75,5248s</td>
+    <td>0m3.5408s/3,5408s</td>
   </tr>
   <tr>
     <td>w: 1, j: false</td>
-    <td>160,1132</td>
-    <td>102,9704</td>
-    <td>8,0768</td>
-    <td>111,95</td>
-    <td>75,4752</td>
-    <td>3,4752</td>
+    <td>2m40.1132s/160,1132s</td>
+    <td>1m42.9704s/102,9704s</td>
+    <td>0m8.0768s/8,0768s</td>
+    <td>1m51.95s/111,95s</td>
+    <td>1m15.4752s/75,4752s</td>
+    <td>0m3.4751s/3,4751s</td>
   </tr> 
   <tr>
     <td>w: 1, j: true</td>
-    <td>162,3682</td>
-    <td>102,816</td>
-    <td>8,4784</td>
-    <td>109,7756</td>
-    <td>75,9256</td>
-    <td>3,5776</td>
+    <td>2m42.3682s/162,3682s</td>
+    <td>1m42.816s/102,816s</td>
+    <td>0m8.4784s/8,4784s</td>
+    <td>1m49.7756s/109,7756s</td>
+    <td>1m15.9256s/75,9256s</td>
+    <td>0m3.577s/3,5776s</td>
   </tr>
   <tr>
     <td>w: 2, j: false</td>
