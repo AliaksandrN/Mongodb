@@ -99,7 +99,8 @@ Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
       162,8514s</td>
     <td>1m43.2352s
       103,2352s</td>
-    <td>8,3848s</td>
+    <td>0m8.3848s
+      8,3848s</td>
     <td>1m50.7564s
       110,7564s</td>
     <td>1m15.6152s
