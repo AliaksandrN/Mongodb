@@ -304,15 +304,10 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>32.621</td>
     <td>74.764</td>
     <td>3.624</td>
-  </tr>
-  
-  
+  </tr> 
 </table>
   
-  
-
- 
-<table border=1>
+  <table border=1>
   <tr>
     <th rowspan="2">Settings</th>
     <th colspan="3">Avg time crimes.csv</th>
@@ -325,7 +320,6 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>Real time</td>
     <td>User time</td>
     <td>System time</td>
-
   </tr>
   <tr>
     <td>Default</td>
@@ -335,8 +329,8 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>109,6122</td>
     <td>75,5248</td>
     <td>3,5408</td>
-
   </tr>
+  <tr>
     <td>w: 1, j: false</td>
     <td>160,1132</td>
     <td>102,9704</td>
@@ -344,23 +338,16 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>111,95</td>
     <td>75,4752</td>
     <td>3,4752</td>
-  </tr>
-  
+  </tr> 
   <tr>
     <td>w: 1, j: true</td>
     <td>162,3682</td>
-    <td>102,816
-</td>
-    <td>8,4784
-</td>
-    <td>109,7756
-</td>
-    <td>75,9256
-</td>
-    <td>3,5776
-</td>
+    <td>102,816</td>
+    <td>8,4784</td>
+    <td>109,7756</td>
+    <td>75,9256</td>
+    <td>3,5776</td>
   </tr>
-  
   <tr>
     <td>w: 2, j: false</td>
     <td>162,7596</td>
@@ -369,8 +356,7 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>111,3964</td>
     <td>75,3512</td>
     <td>3,6008</td>
-  </tr>
-  
+  </tr> 
   <tr>
     <td>w: 2, j: true</td>
     <td>162,8514</td>
@@ -379,9 +365,8 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>110,7564</td>
     <td>75,6152</td>
     <td>3,5312</td>
-  </tr>
-  
-    <tr>
+  </tr> 
+  <tr>
     <td>Standalone</td>
     <td>63,1854</td>
     <td>107,4208</td>
@@ -389,10 +374,11 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>33,0072</td>
     <td>74,8416</td>
     <td>3,5608</td>
-  </tr>
+  </tr> 
+</table>
   
 
-  
-</table>
+ 
+
 
 
