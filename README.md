@@ -18,7 +18,7 @@ Parametry laptopa, na którym byli uruchamiane skrypty:
 
 **./bin/runLocalReplSet.sh**
 
-  
+Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
   <table border=1>
   <tr>
     <th rowspan="2">Settings</th>
