@@ -170,7 +170,7 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
     <td>3.640</td>
 
    <tr>
-    <td rowspan="5">w: 1, j: true</td>
+    <td rowspan="5">w: 2, j: false</td>
     <td>159.648</td>
     <td>103.060</td>
     <td>8.348</td>
@@ -310,7 +310,7 @@ This dataset reflects incidents of crime in the City of Los Angeles dating back 
 </table>
   
   
-</table>
+
  
 
 
