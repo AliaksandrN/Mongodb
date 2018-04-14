@@ -35,7 +35,8 @@ Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
   </tr>
   <tr>
     <td>Default</td>
-    <td>2m39.4432s/159,4432s</td>
+    <td>2m39.4432s/
+      159,4432s</td>
     <td>1m43.2424s/103,2424s</td>
     <td>0m8.6016s/8,6016s</td>
     <td>1m49.6122s/109,6122s</td>
