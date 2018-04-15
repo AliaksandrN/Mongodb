@@ -20,8 +20,8 @@ Parametry laptopa, na którym byli uruchamiane skrypty:
 
 ### Wyniki oczekiwane
 - Real time > User time > System time (więcej o tym tu [System, user, real time](https://www.quora.com/Unix-What-is-the-difference-between-real-user-and-sys-when-I-call-time))
-- Import danych do standalone jest szybszy od replica set
-- Import danych w formaci json jest szybszy od importu danych w formacie csv
+- Import danych do standalone jest szybszy od replica set (więcej o tym tu [Mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/))
+- Import danych w formaci json jest szybszy od importu danych w formacie csv (więcej o tym tu [Mongoimport csv json] (https://docs.mongodb.com/manual/reference/program/mongoimport/))
 
 Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
   <table border=1>
