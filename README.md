@@ -19,7 +19,7 @@ Parametry laptopa, na którym byli uruchamiane skrypty:
 **./bin/runLocalReplSet.sh**
 
 ### Wyniki oczekiwane
-- Real time > User time > System time (więcej o tym tu [System, user, real time](https://www.quora.com/Unix-What-is-the-difference-between-real-user-and-sys-when-I-call-time))
+- Real time > User time + System time (więcej o tym tu [REAL TIME IS GREATER THAN USER AND SYS TIME](https://blog.gceasy.io/2016/12/08/real-time-greater-than-user-and-sys-time/))
 - Import danych do standalone jest szybszy od replica set (więcej o tym tu [Mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/))
 - Import danych w formaci json jest szybszy od importu danych w formacie csv 
 
@@ -133,7 +133,8 @@ Tabela 1. Średnie czasu importu plików crimes.csv i majowieckie.json
 </table>
   
 ### Analiza wyników
-- owszem w przypadku importu danych do replica set real time ma największą wartość oraz system time na najmniejszą wartość:+1:. W przypadku importu danych do jednej instancji mongod (standalone mode) wyniki nie odpowiadają oczekiwaniam:-1:. Wartość user time jest jest większa od wartości real time (w przypadku importu pliku crimes.csv o 69% oraz importu mazowieckie.json 124%). 
+- owszem w przypadku importu danych do replica set real time ma największą wartość oraz suma system i user time nie jest większa od real time:+1:. W przypadku importu danych do jednej instancji mongod (standalone mode) wyniki nie odpowiadają oczekiwaniam:-1:. Wartość user time jest jest większa od wartości real time (w przypadku importu pliku crimes.csv o 69% oraz importu mazowieckie.json o 124%). Ten wynik można wytłumaczyć w następny sposób: przy importowaniu danych do jednej instancji mongod wykorzystywana jest przewaga wykonania procesu równolegle na większej ilości rzędzi. Pzy tym również obciąrzenie procesora może być większe.
+[Why real time can be lower than user time](https://unix.stackexchange.com/questions/40694/why-real-time-can-be-lower-than-user-time)
  
 
 
