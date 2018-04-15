@@ -23,7 +23,7 @@ Parametry laptopa, na którym byli uruchamiane skrypty:
 - Import danych do standalone jest szybszy od replica set (więcej o tym tu [Mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/))
 - Import danych w formaci json jest szybszy od importu danych w formacie csv
 - Czas importu z ustawieniem j: true ma być dłuższy od improtu danych z ustawieniem j: false (co to jest [Journaling](https://docs.mongodb.com/manual/core/journaling/))
-- Najkrutszy czas będzie osiągnięty dla ustawień w: 1, j: false
+- Najkrótszy czas dla replica set będzie osiągnięty dla ustawień w: 1, j: false
 
 Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
 
@@ -139,7 +139,8 @@ Tabela 1. Średnie czasu importu plików crimes.csv i majowieckie.json
 [Why real time can be lower than user time](https://unix.stackexchange.com/questions/40694/why-real-time-can-be-lower-than-user-time)
 - średnia wartość importu danych (real time) do do replica set jest dłuższa w 2,6 razy od czasu importu do jednej instancji mongod, co wynika z danych przedstawionych w tabeli 1. Ten wynik spełnia oczekiwania.:+1: Przy importowaniu danych do replica set informacja najpierw się zapisuje do primary node, potem dane z primary node 'replikowane' (replication process) do secondary node, co faktycznie jest procesem kopjowania danych do dwuch pozostałych instancji replica set z primary node.
 - średni czas importu danych z pliku json jest o 45% szybszy w przypadku replica set i o 90% szybszy w przypadku standalone mode. Ten wynik jest oczekiwany.:+1: Taka baza danych jak MongoDB używa dokumentów JSON do przechowywania danych. MongoDB reprezentuje dokumenty JSON w formacie zakodowanym binarnie o nazwie BSON. Przy imporcie danych w formacie csv dane się konwertują w format JSON, co oczywiście jest procesem potrzebującym dodatkowego czasu.
-- Porównując real time z włączoną opcją Journaling i z wyłączoną opcją Journaling można zauważyć, że w większości przypadków czas jest troche dłuższy z opcją j: true. Widocznie to jest związane z zapisem informacji do journal files, na co jest potrzebny dodatkowy czas. Ale róźnica w czasie jest bardzo mała, co świadczy o tym, że możliwość zapisu informacji o tym jak się odbywa zapis danych dostajemy prawie zadarmo.
+- Porównując real time z włączoną opcją Journaling i z wyłączoną opcją Journaling można zauważyć, że w większości przypadków czas jest troche dłuższy z opcją j: true. Widocznie to jest związane z zapisem informacji do journal files, na co jest potrzebny dodatkowy czas. Ale róźnica w czasie jest bardzo mała, co świadczy o tym, że możliwość zapisu informacji o tym jak się odbywa zapis danych dostajemy prawie za darmo.
+- przy zapisie danych z ustawieniem w: 1 od primary node jest wymagane potwierdzenie zapisu danych. Przy użycie ustawienia w: 2 potwierdzenie zapisu jest wymagane nie tylko od primary node ale również od jednego z secondary node, co może potrzebować dodatkowego czasu. Dla najlepszej wydajnoście zalecane jest ustawienie write concern w: 1. Czas importu dla ustawień w: 1, j: false jest krócej od innych (za wyjątkiem default settings).  
 
 
 
