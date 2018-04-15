@@ -132,7 +132,8 @@ Tabela 1. Średnie czasu importu plików crimes.csv i majowieckie.json
   </tr> 
 </table>
   
-
+### Analiza wyników
+- owszem w przypadku importu danych do replica set real time ma największą wartość oraz system time na najmniejszą wartość:+1:. W przypadku importu danych do jednej instancji mongod (standalone mode) wyniki nie odpowiadają oczekiwaniam:-1:. Wartość user time jest jest większa od wartości real time (w przypadku importu pliku crimes.csv o 69% oraz importu mazowieckie.json 124%). 
  
 
 
