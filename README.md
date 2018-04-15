@@ -18,8 +18,8 @@ Parametry laptopa, na którym byli uruchamiane skrypty:
 
 **./bin/runLocalReplSet.sh**
 
-#Wyniki oczekiwane
-- Real time > User time > System time
+### Wyniki oczekiwane
+- Real time > User time > System time (więcej o tym tu [https://www.quora.com/Unix-What-is-the-difference-between-real-user-and-sys-when-I-call-time]
 - Import danych do standalone jest szybszy od replica set
 - Import danych w formaci json jest szybszy od importu danych w formacie csv
 
