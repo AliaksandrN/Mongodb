@@ -18,6 +18,11 @@ Parametry laptopa, na którym byli uruchamiane skrypty:
 
 **./bin/runLocalReplSet.sh**
 
+#Wyniki oczekiwane
+- Real time > User time > System time
+- Import danych do standalone jest szybszy od replica set
+- Import danych w formaci json jest szybszy od importu danych w formacie csv
+
 Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
   <table border=1>
   <tr>
