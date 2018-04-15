@@ -24,6 +24,8 @@ Parametry laptopa, na którym byli uruchamiane skrypty:
 - Import danych w formaci json jest szybszy od importu danych w formacie csv 
 
 Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
+
+Tabela 1. Średnie czasu importu plików crimes.csv i majowieckie.json
   <table border=1>
   <tr>
     <th rowspan="2">Settings</th>
