@@ -142,5 +142,5 @@ Tabela 1. Średnie czasu importu plików crimes.csv i majowieckie.json
 - Porównując *real time* z włączoną opcją *Journaling* i z wyłączoną opcją *Journaling* można zauważyć, że w większości przypadków czas jest troche dłuższy z opcją *j: true*. Widocznie to jest związane z zapisem informacji do *journal files*, na co jest potrzebny dodatkowy czas. Ale róźnica w czasie jest bardzo mała, co świadczy o tym, że możliwość zapisu informacji o tym jak się odbywa zapis danych dostajemy prawie za darmo.
 - przy zapisie danych z ustawieniem *w: 1* od *primary node* jest wymagane potwierdzenie zapisu danych. Przy użyciu ustawienia *w: 2* potwierdzenie zapisu jest wymagane nie tylko od *primary node* ale również od jednego z *secondary node*, co może potrzebować dodatkowego czasu. Dla najlepszej wydajności zalecane jest ustawienie *write concern w: 1*. Czas importu dla ustawień *w: 1, j: false* jest krócej od innych (za wyjątkiem default settings).  
 
-
+![image](./docs/screenshots/standalone.png)
 
