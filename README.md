@@ -142,7 +142,7 @@ Tabela 1. Średnie czasu importu plików crimes.csv i majowieckie.json
 ### 2 Obciążenie procesora przy imporcie danych do *standalone*
 ![image](./docs/screenshots/standalone.png)
 ### 3 Wydajność *replica set* (zapis danych)
-![image](./docs/screenshots/compasReplicaset.png)
+![image](./docs/screenshots/compasReplicaSet.png)
 ### 4 Wydajność *standalone* (zapis danych)
 ![image](./docs/screenshots/compasStandalone.png)
 - średnia wartość importu danych (real time) do *replica set* jest dłuższa w 2,6 razy od czasu importu do jednej instancji mongod, co wynika z danych przedstawionych w tabeli 1. Ten wynik spełnia oczekiwania.:+1: Przy importowaniu danych do replica set informacja najpierw się zapisuje do *primary node*, potem dane z *primary node* 'replikowane' (replication process) do *secondary nodes*, co faktycznie jest procesem kopjowania danych do dwuch pozostałych instancji *replica set* z *primary node*.
