@@ -5,7 +5,7 @@
 This dataset reflects incidents of crime in the City of Los Angeles dating back to 2010. This data is transcribed from original crime reports that are typed on paper and therefore there may be some inaccuracies within the data. Some location fields with missing data are noted as (0°, 0°). Address fields are only provided to the nearest hundred block in order to maintain privacy.
 
 :computer:
-Parametry laptopa, na którym byli uruchamiane skrypty:
+Parametry laptopa, na którym były uruchamiane skrypty:
 - System operacyjny: Ubuntu 16.04
 - CPU: Intel i7 (4 rdzeni) 
 - Dysk twardy: SSD
@@ -20,10 +20,10 @@ Parametry laptopa, na którym byli uruchamiane skrypty:
 
 ### Wyniki oczekiwane
 - Real time > User time + System time (więcej o tym tu [REAL TIME IS GREATER THAN USER AND SYS TIME](https://blog.gceasy.io/2016/12/08/real-time-greater-than-user-and-sys-time/))
-- Import danych do standalone jest szybszy od replica set (więcej o tym tu [Mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/))
-- Import danych w formaci json jest szybszy od importu danych w formacie csv
-- Czas importu z ustawieniem j: true ma być dłuższy od improtu danych z ustawieniem j: false (co to jest [Journaling](https://docs.mongodb.com/manual/core/journaling/))
-- Najkrótszy czas dla replica set będzie osiągnięty dla ustawień w: 1, j: false
+- Import danych do *standalone* jest szybszy od replica set (więcej o tym tu [Mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/))
+- Import danych w formacie json jest szybszy od importu danych w formacie csv
+- Czas importu z ustawieniem *j: true* ma być dłuższy od importu danych z ustawieniem *j: false* (co to jest [Journaling](https://docs.mongodb.com/manual/core/journaling/))
+- Najkrótszy czas dla *replica set* będzie osiągnięty dla ustawień *w: 1, j: false*
 
 Wyniki zapisywane do pliku *results.txt* w folderze *docs*.
 
@@ -135,7 +135,7 @@ Tabela 1. Średnie czasu importu plików crimes.csv i majowieckie.json
 </table>
   
 ### Analiza wyników
-- owszem w przypadku importu danych do *replica set* *real time* ma największą wartość oraz suma *system time* i *user time* nie jest większa od *real time*:+1:. W przypadku importu danych do jednej instancji *mongod* (standalone mode) wyniki nie odpowiadają oczekiwaniam:-1:. Wartość *user time* jest większa od wartości *real time* (w przypadku importu pliku crimes.csv o 69% oraz importu mazowieckie.json o 124%). Ten wynik można wytłumaczyć w następny sposób: przy importowaniu danych do jednej instancji *mongod* wykorzystywana jest przewaga wykonania procesu równolegle na większej ilości rdzeni. Prawdopodobnie, że czaś wykonywania osobnych procesów może się sumować i dawać większy wynik. Z innej strony mamy pytanie: dla czego przy imporcie danych do *replica set* import się nie wykonuje na większej ilości rdzeni. Jeśli *real time* jest większy od *user time*, to proces jest związany z operacjami wejcia/wyjścia. I w tym przypadku wykonanie procesu na wielu rdzeni miałoby małą lub żadną przewagę.
+- w przypadku importu danych do *replica set*, *real time* ma największą wartość oraz suma *system time* i *user time* nie jest większa od *real time*:+1:. W przypadku importu danych do jednej instancji *mongod* (standalone mode) wyniki nie odpowiadają oczekiwaniom:-1:. Wartość *user time* jest większa od wartości *real time* (w przypadku importu pliku crimes_data.csv o 69% oraz importu mazowieckie.json o 124%). Ten wynik można wytłumaczyć w następujący sposób: przy importowaniu danych do jednej instancji *mongod* wykorzystywana jest przewaga wykonania procesu równolegle na większej ilości rdzeni. Prawdopodobnie, że czas wykonywania osobnych procesów może się sumować i dawać większy wynik. Z innej strony mamy pytanie: dlaczego przy imporcie danych do *replica set* import się nie wykonuje na większej ilości rdzeni(tzn. proces nie jest bardziej zrównoleglony). Jeśli *real time* jest większy od *user time*, to proces jest związany z operacjami wejścia/wyjścia. I w tym przypadku wykonanie procesu na wielu rdzeniach miałoby małą lub żadną przewagę.
 [Why real time can be lower than user time](https://unix.stackexchange.com/questions/40694/why-real-time-can-be-lower-than-user-time)
 ### 1 Obciążenie procesora przy imporcie danych do *replica set*
 ![image](./docs/screenshots/replicaSet.png)
@@ -145,10 +145,11 @@ Tabela 1. Średnie czasu importu plików crimes.csv i majowieckie.json
 ![image](./docs/screenshots/compasReplicaSet.png)
 ### 4 Wydajność *standalone* (zapis danych)
 ![image](./docs/screenshots/compasStandalone.png)
-- średnia wartość importu danych (real time) do *replica set* jest dłuższa w 2,6 razy od czasu importu do jednej instancji mongod, co wynika z danych przedstawionych w tabeli 1. Ten wynik spełnia oczekiwania.:+1: Przy importowaniu danych do replica set informacja najpierw się zapisuje do *primary node*, potem dane z *primary node* 'replikowane' (replication process) do *secondary nodes*, co faktycznie jest procesem kopjowania danych do dwuch pozostałych instancji *replica set* z *primary node*.
-- średni czas importu danych z pliku json jest o 45% szybszy w przypadku replica set i o 90% szybszy w przypadku standalone mode. Ten wynik jest oczekiwany.:+1: Taka baza danych jak MongoDB używa dokumentów JSON do przechowywania danych. MongoDB reprezentuje dokumenty JSON w formacie zakodowanym binarnie o nazwie BSON. Przy imporcie danych w formacie csv dane się konwertują w format JSON, co oczywiście jest procesem wymagającym dodatkowego czasu.
-- Porównując *real time* z włączoną opcją *Journaling* i z wyłączoną opcją *Journaling* można zauważyć, że w większości przypadków czas jest troche dłuższy z opcją *j: true*. Widocznie to jest związane z zapisem informacji do *journal files*, na co jest potrzebny dodatkowy czas. Ale róźnica w czasie jest bardzo mała, co świadczy o tym, że możliwość zapisu informacji o tym jak się odbywa zapis danych dostajemy prawie za darmo.
-- przy zapisie danych z ustawieniem *w: 1* od *primary node* jest wymagane potwierdzenie zapisu danych. Przy użyciu ustawienia *w: 2* potwierdzenie zapisu jest wymagane nie tylko od *primary node* ale również od jednego z *secondary node*, co może potrzebować dodatkowego czasu. Dla najlepszej wydajności zalecane jest ustawienie *write concern w: 1*. Czas importu dla ustawień *w: 1, j: false* jest krócej od innych (za wyjątkiem default settings).  
+- *real time* importu danych do *standalone* jest mniejszy co można wytłumaczyć tym, że prędkość zapisywania danych jest wyższa od prędkości zapisywania danych do *replica set* co wynika ze screenshotu 3 i 4.
+- średnia wartość importu danych (real time) do *replica set* jest dłuższa o 2,6 raza od czasu importu do jednej instancji mongod, co wynika z danych przedstawionych w tabeli 1. Ten wynik spełnia oczekiwania.:+1: Przy importowaniu danych do replica set informacja najpierw się zapisuje do *primary node*, potem dane z *primary node* są 'replikowane' (replication process) do *secondary nodes*, co faktycznie jest procesem kopiowania danych do dwóch pozostałych instancji *replica set* z *primary node*.
+- średni czas importu danych z pliku json jest o 45% szybszy w przypadku replica set i o 90% szybszy w przypadku standalone. Ten wynik jest oczekiwany.:+1: Taka baza danych jak MongoDB używa dokumentów JSON do przechowywania danych. MongoDB reprezentuje dokumenty JSON w formacie zakodowanym binarnie o nazwie BSON. Przy imporcie danych w formacie csv dane się konwertują w format JSON, co oczywiście jest procesem wymagającym dodatkowego czasu.
+- Porównując *real time* z włączoną opcją *Journaling* i z wyłączoną opcją *Journaling* można zauważyć, że w większości przypadków czas jest trochę dłuższy z opcją *j: true*. Widocznie to jest związane z zapisem informacji do *journal files*, na co jest potrzebny dodatkowy czas. Ale róźnica w czasie jest bardzo mała, co świadczy o tym, że możliwość zapisu informacji o tym jak się odbywa zapis danych dostajemy prawie za darmo.
+- przy zapisie danych z ustawieniem *w: 1* od *primary node* jest wymagane potwierdzenie zapisu danych. Przy użyciu ustawienia *w: 2* potwierdzenie zapisu jest wymagane nie tylko od *primary node* ale również od jednego z *secondary node*, co może potrzebować dodatkowego czasu. Dla najlepszej wydajności zalecane jest ustawienie *write concern w: 1*. Czas importu dla ustawień *w: 1, j: false* jest krótszy od innych (za wyjątkiem default settings).  
 
 
 
