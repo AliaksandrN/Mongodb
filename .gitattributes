@@ -1,0 +1,2 @@
+./bin/datasets/mazowieckie.json filter=lfs diff=lfs merge=lfs -text
+./bin/datasets/crime_data.csv filter=lfs diff=lfs merge=lfs -text
